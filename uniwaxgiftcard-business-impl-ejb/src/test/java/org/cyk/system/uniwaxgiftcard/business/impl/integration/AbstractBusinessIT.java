@@ -77,7 +77,6 @@ public abstract class AbstractBusinessIT extends AbstractIntegrationTestJpaBased
 	@Inject protected DataProducer dataProducer;
     @Inject protected FiniteStateMachineStateDao finiteStateMachineStateDao;
 	
-    @Inject private RootBusinessLayer rootBusinessLayer;
     @Inject private CompanyBusinessLayer companyBusinessLayer;
     
 	@Deployment
