@@ -6,6 +6,7 @@ import java.util.Collection;
 import java.util.LinkedHashSet;
 
 import org.cyk.system.company.business.impl.CompanyBusinessLayer;
+import org.cyk.system.company.model.CompanyConstant;
 import org.cyk.system.company.model.sale.SalableProductInstanceCashRegister;
 import org.cyk.system.company.model.sale.SaleCashRegisterMovement;
 import org.cyk.system.root.business.impl.RootBusinessLayer;
@@ -21,7 +22,7 @@ public class FiniteStateMachineStateLogBusinessAdapter extends FiniteStateMachin
 		if(SalableProductInstanceCashRegister.class.equals(searchCriteria.getIdentifiableClass())){
 			Collection<SalableProductInstanceCashRegister> utilise = new ArrayList<>();
 			Collection<String> supportingDocumentIdentifiers = new LinkedHashSet<>();
-			FiniteStateMachineState utiliseFiniteStateMachineState = RootBusinessLayer.getInstance().getFiniteStateMachineStateDao().read("Utilisé");
+			FiniteStateMachineState utiliseFiniteStateMachineState = RootBusinessLayer.getInstance().getFiniteStateMachineStateDao().read(CompanyConstant.GIFT_CARD_WORKFLOW_STATE_USED);
 			if(searchCriteria.getFiniteStateMachineStateLog().getFiniteStateMachineStates().contains(utiliseFiniteStateMachineState)){
 				for(T identifiable : identifiables){
 					if(((SalableProductInstanceCashRegister)identifiable).getFiniteStateMachineState().getCode().equals(utiliseFiniteStateMachineState.getCode()) ){
@@ -31,8 +32,6 @@ public class FiniteStateMachineStateLogBusinessAdapter extends FiniteStateMachin
 				}
 				Collection<SaleCashRegisterMovement> saleCashRegisterMovements = CompanyBusinessLayer.getInstance().getSaleCashRegisterMovementDao()
 						.readBySupportingDocumentIdentifiers(supportingDocumentIdentifiers);
-				//System.out.println(utilise);
-				//System.out.println(supportingDocumentIdentifiers);
 				
 				for(SalableProductInstanceCashRegister salableProductInstanceCashRegister : utilise)
 					for(SaleCashRegisterMovement saleCashRegisterMovement : saleCashRegisterMovements)
