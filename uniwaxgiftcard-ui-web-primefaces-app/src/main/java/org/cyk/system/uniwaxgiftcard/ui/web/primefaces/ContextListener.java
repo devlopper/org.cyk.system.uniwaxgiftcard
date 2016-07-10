@@ -11,6 +11,13 @@ import org.cyk.system.company.business.impl.sale.SaleProductInstanceBusinessImpl
 import org.cyk.system.company.model.sale.SalableProduct;
 import org.cyk.system.company.ui.web.primefaces.AbstractCompanyContextListener;
 import org.cyk.system.company.ui.web.primefaces.CompanyWebManager;
+import org.cyk.system.company.ui.web.primefaces.adapter.giftcard.BusinessProcessManySalableProductInstancePageAdapter;
+import org.cyk.system.company.ui.web.primefaces.adapter.giftcard.BusinessSaleEditPageAdapter;
+import org.cyk.system.company.ui.web.primefaces.adapter.giftcard.BusinessSelectManySalableProductInstancePageAdapter;
+import org.cyk.system.company.ui.web.primefaces.adapter.giftcard.FiniteStateMachineStateLogBusinessAdapter;
+import org.cyk.system.company.ui.web.primefaces.adapter.giftcard.SaleBusinessAdapter;
+import org.cyk.system.company.ui.web.primefaces.adapter.giftcard.SaleEditPageAdapter;
+import org.cyk.system.company.ui.web.primefaces.adapter.giftcard.SaleProductInstanceBusinessAdapter;
 import org.cyk.system.company.ui.web.primefaces.sale.SalableProductEditPage;
 import org.cyk.system.company.ui.web.primefaces.sale.SalableProductInstanceEditPage;
 import org.cyk.system.company.ui.web.primefaces.sale.SaleEditPage;
